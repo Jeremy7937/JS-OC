@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:lxslt="http://xml.apache.org/xslt" xmlns:fn="http://www.w3.org/2005/xpath-functions">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+            <style type="text/css">
+                body {
+                    padding: 0px;
+                    margin: 0px;
+                    width: 558px;
+                    font-family: Arail,"宋体",Arail;
+                    font-size: 18px;
+                    margin-left: 5px;
+                    margin-right: 5px;
+                    color: black;
+                }
+            .test_sign {
+                bgcolor:blue;
+                margin: 10px;
+                height: 400px;
+                width: 558px;
+            }
+            .effrg {
+                color: red;
+            }
+            .signContent {
+                /**overflow: auto;*/
+                width: 100%;
+                height: auto;
+            }
+            .radioDiv {
+                width: 10%px;
+                height: auto;
+                float: left;
+            }
+            .signDiv {
+                height: auto;
+                font-family: Arail,"宋体",Arail;
+                font-size: 13px;
+            }
+            .signInput {
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: 1px solid #000;
+                width: 40px;
+                height: 30px;
+                background-color: white !important;
+                font-family:Arail,"黑体";
+                color: #FF00FF;
+            }
+            .checklevelDiv {
+                float: right;
+            }
+            .signDetail {
+                clear: both;
+            }
+            .warning {
+                color: red;
+                font-family:Arail,"黑体";
+            }
+            .note {
+                color: purple;
+                font-family:Arail,"黑体";
+            }
+            .caution {
+                color: brown;
+            }
+            .table {
+                width: 100%;
+                text-align: left;
+                border:1px solid #000;
+                border-collapse: collapse;
+                padding: 0px;
+            }
+            .table tr td,th {
+                height: auto;
+                min-height: 40px;
+                font-size: 14px;
+                border:1px solid #000;
+            }
+            th {
+                background-color: rgb(192,192,192);
+            }
+            label {
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: 1px solid #000;
+                width: 50px;
+                height: 18px;
+                display: inline-block;
+            }
+            .input {
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: 1px solid #000;
+                width: 80px;
+                height: 30px;
+                background-color: white !important;
+            }
+            .inputTime {
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: 1px solid #000;
+                width: 118px;
+                height: 30px;
+                background-color: white !important;
+            }
+            .inputStatus {
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: 1px solid #000;
+                width: 40px;
+                height: 30px;
+                background-color: white !important;
+            }
+            .table2 {
+                position: relative;
+                width: 100%;
+                text-align: center;
+                border:1px solid #000;
+                border-collapse: collapse;
+                padding: 0px;
+            }
+            .table2,.table2 tr th, .table2 tr td {
+                border:1px solid #000;
+            }
+            #ac,#ac2,#acc,#risk {
+                width: 100%px;
+                text-align: center;
+                border-collapse: collapse;
+                padding: 0px;
+                font-size: 12px;
+            }
+            #ac tr td,#acc tr td {
+                height: auto;
+                min-height: 50px;
+                width: 12.5%;
+            }
+            #risk tr td {
+                height: auto;
+                min-height: 50px;
+                width: auto;
+            }
+            #ac2 tr td {
+                height: auto;
+                min-height: 50px;
+                width: 16.6%;
+            }
+            #ac2,#acc,#risk {
+                border-top: 0px;
+            }
+            .noBorder  {
+                border-top:0px;
+            }
+            .tableHeader  {
+                text-align: center;
+                background-color: lightgray;
+                height: 30px !important;
+            }
+            .topicDiv  {
+                position: relative;
+                width: 558px;
+                margin: 0px 0px 0px;
+            }
+            .topicSeq {
+                float: left;
+            }
+            .title  {
+                float: left;
+            }
+            .title-zh {
+                clear:both;
+                margin-left: 12px;
+            }
+            .task-title  {
+                width:558px;
+            }
+            .task-title-zh {
+                width:558px;
+            }
+            .subtask-effect {
+                position: relative;
+                width: 558px;
+                margin: 0px 0px 0px;
+            }
+            .subtask-jcNo {
+                position: relative;
+                width: 558px;
+                margin: 0px 0px 0px;
+            }
+            .task-tablesDiv {
+                margin: 0px;
+                width: 558px;
+            }
+            .list1Div {
+                position: relative;
+                margin: 0px;
+                width: 558px;
+            }
+            .list2Div {
+                position: relative;
+                width: auto;
+            }
+            .list3Div {
+                position: relative;
+                width: auto;
+            }
+            .list4Div {
+                position: relative;
+                width: auto;
+            }
+            .list5Div {
+                position: relative;
+                width: auto;
+            }
+            .list6Div {
+                position: relative;
+                width: auto;
+            }
+            .list7Div {
+                position: relative;
+                width: auto;
+            }
+            .checkInput {
+                position: relative;
+                width: 80%;
+                margin: 5px auto 5px;
+            }
+            .list2ol {
+                list-style-type:none;
+                counter-reset:sectioncounter;
+            }
+            .list2li:before {
+                content:"(" counter(sectioncounter) ")";
+                counter-increment:sectioncounter;
+            }
+            .list3ol {
+                list-style-type:lower-alpha;
+                counter-reset:sectioncounter;
+            }
+            .list3li:before {
+                content:"(" counter(sectioncounter) ")";
+                counter-increment:sectioncounter;
+            }
+            .list4ol {
+                list-style-type:none;
+                counter-reset:sectioncounter;
+            }
+            .list4li:before {
+                content:counter(sectioncounter) ")";
+                counter-increment:sectioncounter;
+            }
+            .list5ol {
+                list-style-type:lower-roman;
+            }
+            .list5li:before {
+            }
+            .list6ol {
+                list-style-type:none;
+                counter-reset:sectioncounter;
+            }
+            .list6li:before {
+                content:"*";
+                counter-increment:sectioncounter;
+            }
+            .list7ol{
+                list-style-type:none;
+                counter-reset:sectioncounter;
+            }
+            .list7li:before {
+                content:"-";
+                counter-increment:sectioncounter;
+            }
+            ol {
+                padding: 0px;
+                margin-left: 2em;
+            }
+            ol li {
+                line-height: 30px;
+                clear : left;
+            }
+            ul li p,
+            ol li p{
+                padding-left: 20px;
+                position: relative;
+                margin: 0;
+            }
+            i{
+                text-decoration: underline;
+                position: absolute;
+                left: 0;
+                font-style: normal;
+            }
+            .ulStyle{
+                list-style: none;
+            }
+            </style>
+            <script type="text/javascript" language="javascript">
+                function chooseOne(chk,name){
+                    //先取得同name的chekcBox的集合物件
+                    var obj = document.getElementsByName(name);
+                    for (i=0; i < obj.length; i++){
+                        var checkedValue = "";
+                        if (obj[i]!=chk){
+                            obj[i].checked = false;
+                            
+                        }else {
+                            obj[i].checked = true;
+                            checkedValue = "1";
+                        }
+                        checkBoxClicked(obj[i].getAttribute("val"), checkedValue);
+                       // reportInputElementValueChanged(obj[i].id, checkedValue);
+                    }
+                };
+            </script>
+            </head>
+    <body>
+        <div style="width:558px;">
+            <table width="558px">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="topicDiv">
+                                <div class="topicSeq">
+                                    2.
+                                </div>
+                                <div class="title">
+                                    <u>Procedure</u>
+                                </div>
+                                <div class="title-zh">
+                                    <u>步骤</u>
+                                </div>
+                            </div> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="subtask-effect">
+                                <span class="effrg"> ON A/C </span>
+                                <span class="effrg"><span>ALL</span></span>
+                                <br>
+                            </div>
+                            <div class="subtask-jcNo">
+                                <p>SUBTASK&nbsp;05-28-30-210-050-A</p>
+                            </div>
+                            <div class="list1Div"></div>
+                            <div class="list1Others"></div>
+                            <div class="list1Content">
+                                <ol class="list1ol" start="1" type="A">
+                                    <div class="l1item">
+                                        A.
+                                        <span>Inspection<br></span>
+                                        <span>检查<br></span>
+                                        <span><br></span>
+                                        <div class="list2Div"></div>
+                                        <div class="list2Content">
+                                            <ol class="list2ol" start="1" type="1">
+                                                <div class="l2item">
+                                                    <div class="signContent">
+                                                        <div class="radioDiv">
+                                                            <input type="radio" id="sign11587" name="radio_work" signid="B201104" isrii="">
+                                                                </div>
+                                                        <div class="signDiv">
+                                                            <div>
+                                                                <span id="B201104">授权：A320-214机型（ME/AV）定检</span>
+                                                                <div class="checklevelDiv"></div>
+                                                                <br>
+                                                            </div>
+                                                            <div>
+                                                                <span>工作状态：</span>
+                                                                <input id="sign11587_workState" name="sign11587_workState" type="text" value="" class="signInput" disabled="true">
+                                                                    <span>工作者：</span>
+                                                                    <input id="sign11587_worker" name="sign11587_worker" type="text" value="" class="input" disabled="true">
+                                                                        <span>工作时间：</span>
+                                                                        <input id="sign11587_workdate" name="sign11587_workdate" type="text" value="" class="inputTime" disabled="true">
+                                                                            </div>
+                                                            <div></div>
+                                                        </div>
+                                                        <li class="list2li"> <span> Do a general visual inspection of the R/H aft passenger/crew doors. This inspection includes the door stops on the fuselage door frames, the door seals and the external surface of the doors. <br></span> <span>对右后旅客/机组门进行一般目视检查，检查包括机身门框上的止动块和门封严及门外表面。<br></span> </li>
+                                                    </div>
+                                                </div>
+                                                <div class="l2item">
+                                                    <div class="signContent">
+                                                        <div class="radioDiv">
+                                                            <input type="radio" id="sign63058" name="radio_work" signid="B201104" isrii="">
+                                                                </div>
+                                                        <div class="signDiv">
+                                                            <div>
+                                                                <span id="B201104">授权：A320-214机型（ME/AV）定检</span>
+                                                                <div class="checklevelDiv"></div>
+                                                                <br>
+                                                            </div>
+                                                            <div>
+                                                                <span>工作状态：</span>
+                                                                <input id="sign63058_workState" name="sign63058_workState" type="text" value="" class="signInput" disabled="true">
+                                                                    <span>工作者：</span>
+                                                                    <input id="sign63058_worker" name="sign63058_worker" type="text" value="" class="input" disabled="true">
+                                                                        <span>工作时间：</span>
+                                                                        <input id="sign63058_workdate" name="sign63058_workdate" type="text" value="" class="inputTime" disabled="true">
+                                                                            </div>
+                                                            <div></div>
+                                                        </div>
+                                                        <li class="list2li"> <span>Make sure that there are no signs of corrosion, cracks or damage.<br></span> <span>确保在该区域没有腐蚀，裂纹或者损伤的迹象。<br></span>
+                                                            <table class="table" id="sign63058_table" style="text-align:left;">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td> <span>有无发现问题（Any problems found）<br></span> </td>
+                                                                        <td> <input class="input" align="center" id="input-12215212131211-87D1CD9A" flag = "true" val="1" type="checkbox" name="input-12215212131211-87D1CD9A" onclick="chooseOne(this,'input-12215212131211-87D1CD9A')">Y <input class="input" align="center" id="input-12215212131212-87D1D2F8" flag = "true" val="0" type="checkbox" name="input-12215212131211-87D1CD9A" onclick="chooseOne(this,'input-12215212131211-87D1CD9A')">N </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center"> <span>检查结果（Checking result）<br></span> </td>
+                                                                        <td> <input class="input" align="center" id="input-1221521213221-87D1C256" type="text"> </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center"> <span>采取措施（Maintenance）<br></span> </td>
+                                                                        <td> <input class="input" align="center" id="input-1221521213321-87D1C442" type="text"> </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table> </li>
+                                                    </div>
+                                                </div>
+                                                <div class="l2item">
+                                                    <div class="signContent">
+                                                        <div class="radioDiv">
+                                                            <input type="radio" id="sign77366" name="radio_work" signid="B201104" isrii="">
+                                                                </div>
+                                                        <div class="signDiv">
+                                                            <div>
+                                                                <span id="B201104">授权：A320-214机型（ME/AV）定检</span>
+                                                                <div class="checklevelDiv"></div>
+                                                                <br>
+                                                            </div>
+                                                            <div>
+                                                                <span>工作状态：</span>
+                                                                <input id="sign77366_workState" name="sign77366_workState" type="text" value="" class="signInput" disabled="true">
+                                                                    <span>工作者：</span>
+                                                                    <input id="sign77366_worker" name="sign77366_worker" type="text" value="" class="input" disabled="true">
+                                                                        <span>工作时间：</span>
+                                                                        <input id="sign77366_workdate" name="sign77366_workdate" type="text" value="" class="inputTime" disabled="true">
+                                                                            </div>
+                                                            <div></div>
+                                                        </div>
+                                                        <li class="list2li"> <span> Make sure that all the installations are attached correctly. <br></span> <span>确保所有的安装件连接正确。<br></span>
+                                                            <table class="table" id="sign77366_table" style="text-align:left;">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td> <span>有无发现问题（Any problems found）<br></span> </td>
+                                                                        <td> <input class="input" align="center" id="input-1221551141534131211-C40C96D5" type="checkbox" flag = "true" val="1" name="input-1221551141534131211-C40C96D5" onclick="chooseOne(this,'input-1221551141534131211-C40C96D5')">Y <input class="input" align="center" id="input-1221551141534131212-C40C98EE" type="checkbox" flag = "true" val="0" name="input-1221551141534131211-C40C96D5" onclick="chooseOne(this,'input-1221551141534131211-C40C96D5')">N </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center"> <span>检查结果（Checking result）<br></span> </td>
+                                                                        <td> <input class="input" align="center" id="input-122155114153413221-C40C99CD" type="text"> </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center"> <span>采取措施（Maintenance）<br></span> </td>
+                                                                        <td> <input class="input" align="center" id="input-122155114153413321-C40C9B06" type="text"> </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table> </li>
+                                                    </div>
+                                                </div>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </ol>
+                            </div> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+<script type="text/javascript">
+ 
+    function setInputValue(name, value) {
+        var input = document.getElementById(name);
+        if (input) {
+            input.value = value;
+        }
+    }
+    {
+        var divs = document.getElementsByClassName("signContent");
+        for (var i = 0; i < divs.length; ++i) {
+            var tag = divs[i];
+            tag.onclick = function clickEvent() {
+                for (var k = 0; k < divs.length; ++k) {
+                    var sc = divs[k];
+                    sc.style.backgroundColor = "#fff";
+                    sc.setAttribute("isChecked", "false");
+                }
+                for (var z = 0; z < divs.length; ++z) {
+                    var ck = divs[z];
+                    if (ck != this) {
+                        ck.checked = false;
+                    }
+                }
+                var isChecked = this.getAttribute("isChecked");
+                var radio = null;
+                var children = this.getElementsByTagName("input");
+                
+                if (null != children && undefined != children) {
+                    for (var j = 0; j < children.length; ++j) {
+                        var child = children[j];
+                        if ("radio" == child.getAttribute("type")) {
+                            radio = child;
+                            break;
+                        }
+                    }
+                }
+                
+                if (null != radio) {
+                    if (undefined == isChecked  || "false" == isChecked) {
+                        this.style.backgroundColor = "#FCFAD8";
+                        this.setAttribute("isChecked", "true");
+                        radio.checked = true;
+                    } else {
+                        this.style.backgroundColor = "#fff";
+                        this.setAttribute("isChecked", "false");
+                        radio.checked = false;
+                    }
+                    
+                    
+                    var rid = radio.getAttribute("id");
+                    var ws = document.getElementById(rid + "_worker");
+                    
+                    var wsv = "";
+                    if (ws) {
+                        wsv = ws.value;
+                    }
+                    
+                    var wd = document.getElementById(rid + "_workState");
+                    var wds = "";
+                    if (wd) {
+                        wds = wd.value;
+                    }
+                    
+                    var cs = document.getElementById(rid + "_checker");
+                    var csv = null;
+                    if (cs) {
+                        csv = cs.value;
+                    }
+                    
+                    radioChecked(rid, radio.checked ? "checked" : "notchecked",
+                                 radio.getAttribute("signid"), wsv, csv, wds, radio.getAttribute("isrii"));
+                                 
+                }
+                
+            }
+        }
+    }
+
+    function setDate(jsonItem) {
+        
+        document.getElementById(jsonItem.redioId + '_workState').value = jsonItem['workState'];
+        document.getElementById(jsonItem.redioId + '_worker').value = jsonItem['worker'];
+        document.getElementById(jsonItem.redioId + '_workdate').value = jsonItem['workdate'];
+        
+        var table = document.getElementById(jsonItem.redioId + '_table')
+        var inputs = table.getElementsByTagName("input");
+        
+        var disable = jsonItem['stepStatus']=="1" ? true : false;
+        
+        for (var i=0; i<inputs.length; i++) {
+            var obj = inputs[i];
+            
+            obj.disabled = disable;
+        }
+    }
+    
+</script>
+
+<script type='text/javascript'>
+    
+    window.onload = function() {
+        var ele, elements, _i, _len;
+        elements = document.getElementsByTagName('input');
+        for (_i = 0, _len = elements.length; _i < _len; _i++) {
+            ele = elements[_i];
+
+            if (ele.getAttribute("type") == "text") {
+                if (ele.getAttribute("name") == null) {
+                    
+                    ele.parentElement.onclick = function() {
+                        var sid = this.children[0].getAttribute("id");
+                        var disable = this.children[0].disabled;
+                        var value = this.children[0].value;
+                        //alert("sid:"+sid+"  disable:"+disable+"  value:"+value);
+                        inputFocus(sid, value, disable);
+                    };
+                    
+//                    ele.onfocus = function() {
+//                        var sid = this.getAttribute("id");
+//                        inputFocus(sid, this.value, false);
+//                    };
+                }
+            }
+            
+        }
+        return null;
+    };
+    
+</script>
+
+
+</html>
+

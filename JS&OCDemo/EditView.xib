@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="PnG-26-7Aa" customClass="EditView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="193"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9DE-M0-sG3">
+                    <rect key="frame" x="65" y="148" width="60" height="30"/>
+                    <color key="backgroundColor" red="0.19215686269999999" green="0.42352941179999998" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="6mI-Gf-gVR"/>
+                        <constraint firstAttribute="height" constant="30" id="Z2U-vp-eFH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="取消">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancleBtnClick:" destination="PnG-26-7Aa" eventType="touchUpInside" id="ntb-a9-22W"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y43-2D-RpP">
+                    <rect key="frame" x="250" y="148" width="60" height="30"/>
+                    <color key="backgroundColor" red="0.19215686269999999" green="0.42352941179999998" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="aLq-Dh-DDh"/>
+                        <constraint firstAttribute="height" constant="30" id="qoH-Yc-4Mq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="确定">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="sureBtnClick:" destination="PnG-26-7Aa" eventType="touchUpInside" id="psP-EU-4DM"/>
+                    </connections>
+                </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rZu-Te-vo4">
+                    <rect key="frame" x="10" y="10" width="355" height="128"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" red="0.83137254901960778" green="0.83137254901960778" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="rZu-Te-vo4" firstAttribute="top" secondItem="PnG-26-7Aa" secondAttribute="top" constant="10" id="5Vc-2A-TaB"/>
+                <constraint firstItem="Y43-2D-RpP" firstAttribute="top" secondItem="9DE-M0-sG3" secondAttribute="top" id="8gN-d3-4gy"/>
+                <constraint firstAttribute="trailing" secondItem="Y43-2D-RpP" secondAttribute="trailing" constant="65" id="B6R-8W-h7i"/>
+                <constraint firstItem="rZu-Te-vo4" firstAttribute="leading" secondItem="PnG-26-7Aa" secondAttribute="leading" constant="10" id="Dju-g9-Org"/>
+                <constraint firstAttribute="trailing" secondItem="rZu-Te-vo4" secondAttribute="trailing" constant="10" id="QYm-ZG-OaQ"/>
+                <constraint firstAttribute="bottom" secondItem="9DE-M0-sG3" secondAttribute="bottom" constant="15" id="RSv-5B-oKY"/>
+                <constraint firstItem="9DE-M0-sG3" firstAttribute="top" secondItem="rZu-Te-vo4" secondAttribute="bottom" constant="10" id="ie0-ed-3Yk"/>
+                <constraint firstItem="9DE-M0-sG3" firstAttribute="leading" secondItem="PnG-26-7Aa" secondAttribute="leading" constant="65" id="jTt-AQ-yWt"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancleBtn" destination="9DE-M0-sG3" id="16l-hg-mV4"/>
+                <outlet property="sureBtn" destination="Y43-2D-RpP" id="4Z0-4t-7aT"/>
+                <outlet property="textView" destination="rZu-Te-vo4" id="aIy-Rf-bNR"/>
+            </connections>
+            <point key="canvasLocation" x="-260.5" y="-76.5"/>
+        </view>
+    </objects>
+</document>
