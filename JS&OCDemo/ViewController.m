@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSLog(@"Master test");
+    
     [self.view addSubview:self.tableView];
 }
 
