@@ -19,6 +19,7 @@
     // Override point for customization after application launch.
     NSLog(@"Master");
     NSLog(@"plt-test");
+    NSLog(@"helloworld");
     return YES;
 }
 
