@@ -22,6 +22,7 @@
     NSLog(@"helloworld");
     
     NSLog(@"plt-test add");
+    NSLog(@"master add");
     return YES;
 }
 
