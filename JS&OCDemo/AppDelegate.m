@@ -20,6 +20,8 @@
     NSLog(@"Master");
     NSLog(@"plt-test");
     NSLog(@"helloworld");
+    
+    NSLog(@"plt-test add");
     return YES;
 }
 
