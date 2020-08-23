@@ -22,6 +22,8 @@
     NSLog(@"helloworld");
     
     NSLog(@"plt-test add");
+    
+    NSLog(@"plt-test change");
     return YES;
 }
 
